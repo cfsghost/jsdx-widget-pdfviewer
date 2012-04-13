@@ -4,6 +4,7 @@
 #include <v8.h>
 #include <node.h>
 
+#include <poppler.h>
 #include <actor.hpp>
 
 namespace JSDXWidgetPDFViewer {
@@ -16,6 +17,8 @@ namespace JSDXWidgetPDFViewer {
 		static void PrototypeMethodsInit(v8::Handle<v8::FunctionTemplate> constructor_template);
 
 		v8::Persistent<v8::Function> *LoadFinishedFunc;
+
+		PopplerDocument *document;
 
 	protected:
 		Viewer();

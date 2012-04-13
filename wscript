@@ -13,6 +13,7 @@ def set_options(opt):
 def configure(conf):
 	conf.check_tool("compiler_cxx")
 	conf.check_tool("node_addon")
+	conf.check_cfg(package='poppler-glib', uselib_store='POPPLER', args='--cflags --libs')
 	conf.check_cfg(package='clutter-1.0', uselib_store='CLUTTER', args='--cflags --libs')
 
 	if Options.options.enable_widget:
@@ -30,7 +31,7 @@ def build(bld):
 		src/viewer.cpp
 		"""
 	obj.cxxflags = ["-D_FILE_OFFSET_BITS=64", "-D_LARGEFILE_SOURCE"]
-	obj.uselib = "CLUTTER"
+	obj.uselib = "CLUTTER POPPLER"
 	obj.includes = """
 		node_modules/jsdx-toolkit/src
 	"""

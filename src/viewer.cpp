@@ -7,6 +7,7 @@
 
 #include <v8.h>
 #include <node.h>
+#include <poppler.h>
 #include <clutter/clutter.h>
 
 #include "jsdx_widget_pdfviewer.hpp"
